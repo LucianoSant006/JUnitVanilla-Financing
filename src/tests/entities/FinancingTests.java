@@ -48,7 +48,7 @@ public class FinancingTests {
         fn.setIncome(900000.00);
         Assertions.assertEquals(900000.00,fn.getIncome());
     }
-    
+
     @Test
     public void setIncomeAmountShouldThrowAnExceptionWhenDataIsInvalid(){
         Assertions.assertThrows(IllegalArgumentException.class,() ->{
@@ -57,6 +57,22 @@ public class FinancingTests {
 
         });
     }
+
+    @Test
+    public void setMonthsShouldUpdatedWhenDataIsValid(){
+        Financing fn = new Financing(200000.00, 4000.00, 80);
+        fn.setMonths(90);
+        Assertions.assertEquals(90,fn.getMonths());
+    }
+    @Test public void  setMonthsAmountShouldThrowAnExceptionWhenDataIsInvalid(){
+        Assertions.assertThrows(IllegalArgumentException.class,() ->{
+            Financing fn = new Financing(200000.00, 4000.00, 80);
+            fn.setMonths(4);
+
+        });
+    }
+
+
 
 
 }

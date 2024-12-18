@@ -42,5 +42,21 @@ public class FinancingTests {
         });
     }
 
+    @Test
+    public void setIncomeShouldUpdatedWhenDataIsValid(){
+        Financing fn = new Financing(100000.00, 2000.00, 80);
+        fn.setIncome(900000.00);
+        Assertions.assertEquals(900000.00,fn.getIncome());
+    }
+    
+    @Test
+    public void setIncomeAmountShouldThrowAnExceptionWhenDataIsInvalid(){
+        Assertions.assertThrows(IllegalArgumentException.class,() ->{
+            Financing fn = new Financing(100000.00, 2000.00, 80);
+            fn.setIncome(1000.00);
+
+        });
+    }
+
 
 }

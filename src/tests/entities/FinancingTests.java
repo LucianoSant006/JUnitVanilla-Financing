@@ -72,6 +72,14 @@ public class FinancingTests {
         });
     }
 
+    @Test
+    public void entryShouldCalculatingValuesWhenDataIsValid(){
+        double expectedValue = 40000.00;
+        Financing fn = new Financing(200000.00, 4000.00, 80);
+        fn.entry();
+        Assertions.assertEquals(expectedValue,fn.entry());
+    }
+
 
 
 

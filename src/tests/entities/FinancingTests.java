@@ -8,15 +8,22 @@ public class FinancingTests {
 
 
     @Test
-    public void constructorShouldInstantiateWhenDataIsValid(){
+    public void constructorShouldInstantiateWhenDataIsValid() {
 
         Financing fn = new Financing(100000.00, 4000.00, 90);
 
-        Assertions.assertEquals(100000.00,fn.getTotalAmount());
-        Assertions.assertEquals(90,fn.getMonths());
-        Assertions.assertEquals(4000.00,fn.getIncome());
+        Assertions.assertEquals(100000.00, fn.getTotalAmount());
+        Assertions.assertEquals(90, fn.getMonths());
+        Assertions.assertEquals(4000.00, fn.getIncome());
 
 
+    }
+
+    @Test
+    public void constructorShouldThrowAnExceptionWhenDataIsInvalid() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Financing fn = new Financing(100000.00, 4000.00, 5);
+        });
     }
 
 }
